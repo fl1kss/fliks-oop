@@ -1,9 +1,5 @@
 import java.util.*;
 
-/*
- Assignment 2 — Social Media Platform
- All classes are in ONE file for simplicity
-*/
 
 public class Main {
 
@@ -11,11 +7,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         SocialMedia platform = new SocialMedia("MiniSocial");
 
-        // demo users
-        platform.addUser(new User("alice", "alice@mail.com"));
+       
+        platform.addUser(new User("Nurakhmet", "nurakhmet@mail.com"));
         platform.addUser(new User("bob", "bob@mail.com"));
 
-        // demo posts
+        
         platform.addPost(new TextPost("alice", "Hello world"));
         platform.addPost(new ImagePost("bob", "My photo", "image.png"));
 
@@ -56,9 +52,6 @@ public class Main {
     }
 }
 
-/* ===================== CLASSES ===================== */
-
-// DATA ABSTRACTION + DATA POOL
 class SocialMedia {
     private String name;
     private List<User> users = new ArrayList<>();
@@ -84,21 +77,21 @@ class SocialMedia {
         posts.forEach(System.out::println);
     }
 
-    // SEARCH
+    
     public void searchPosts(String keyword) {
         posts.stream()
                 .filter(p -> p.getText().contains(keyword))
                 .forEach(System.out::println);
     }
 
-    // SORT
+  
     public void sortPostsByUser() {
         posts.sort(Comparator.comparing(Post::getUsername));
         printPosts();
     }
 }
 
-// INCAPSULATION
+
 class User {
     private String username;
     private String email;
@@ -130,7 +123,7 @@ class User {
     }
 }
 
-// INHERITANCE + POLYMORPHISM
+
 abstract class Post {
     private String username;
     private String text;
